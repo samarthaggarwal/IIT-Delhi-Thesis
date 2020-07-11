@@ -91,7 +91,7 @@
 % \RequirePackage[authoryear,round]{natbib} 
 %\RequirePackage[numbers,square]{natbib} 
 % \bibliographystyle{iitd}
-\bibliographystyle{alpha}
+% \bibliographystyle{alpha}
 % \newcommand{\bibstyle@iitd}{\bibpunct{(}{)}{;}{a}{,}{,}%
     %  \gdef\NAT@biblabel##1{##1. }}
 %
