@@ -18,7 +18,15 @@
 \usepackage{natbib}
 \usepackage{fancyhdr}
 
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
 \usepackage{comment}
+\usepackage{paralist}
+\usepackage{amsfonts}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{listings}
 
  \linespread{1.2}
 
@@ -160,6 +168,7 @@ xxxxxxxxxxx \= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \kill
 % Introduction.
 
 \chapter{Introduction}
+% Hi this is a sample citation \cite{bhardwaj&al19}.\\
 \label{chap:intro}
 \input{sections/02.intro.tex}
 
@@ -230,9 +239,11 @@ xxxxxxxxxxx \= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \kill
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography.
 
-\begin{singlespace}
-  \bibliography{refs}
-\end{singlespace}
+% \begin{singlespace}
+\bibliography{refs}
+\bibliographystyle{acl_natbib}
+  % \bibliographystyle{iitd}
+% \end{singlespace}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
