@@ -1,0 +1,37 @@
+\section{Existing OIE Systems}
+\todo{Add lit.sur. of oie systems from imojie/mlil paper}
+
+\subsection{Rule-Based Systems}
+\subsubsection{ClausIE}
+\subsubsection{PropS}
+\subsubsection{OllIE}
+\subsubsection{OpenIE - 4}
+\subsubsection{OpenIE - 5}
+
+\subsection{Neural Systems}
+\subsubsection{Copy Attention Model}
+\subsubsection{RnnOIE}
+
+\section{Benckmarks}
+    To the best of our knowledge, there were three benchmarks systems available for comparing Open IE systems - OIE2016, RelVis and Wire57.
+
+    \subsection{OIE2016}
+        The first and the most prominent is OIE2016 \cite{OIE2016}. This has been widely adopted as the standard evaluation framework to test new systems on (e.g., OIE2016 is used by the NST \citep{Nst} and Neural Open IE \citep{cui&al18} systems).  In OIE2016, gold tuples are generated using an automated rule-based system built on top of a QA-SRL dataset \cite{QA-SRL}. In early analysis we find this dataset to be rather noisy. Table \ref{tab:gold_example} illustrates some sample sentences from this gold dateset. These tuples look obviously wrong, and unfit to be in the gold set.
+
+        In addition to the dataset, \citet{OIE2016} release a scorer that compares a set of gold tuples with a set of system tuples to estimate word-level precision and recall. This scorer has been identified to not penalize long extractions. It also does not penalise extractions for misidentifying parts of a relation in an argument slot (or vice versa), leading to trivial systems that score much better than genuine Open IE systems  \cite{Wire57}. We also observe that the scorer compares words all-to-all allowing multiple same words in an extraction to match a corresponding one in the gold. Thus, simply repeating a word in the extraction will give it a high precision score. Finally, the scorer loops over gold tuples in an arbitrary order, and matches them to predicted extractions in a sequential manner. Once a gold matches to a predicted extraction, it is rendered unavailable for any subsequent, potentially better-matched, extraction.
+
+    \subsection{RelVis}
+        Another dataset is RelVis \cite{Relvis}, a benchmark that borrows its data from four different datasets including OIE2016. Since OIE2016 forms a major part of this dataset, it has similar issues with noise. Its scorer makes some modifications to OIE2016. However, it does not reward partial coverage of gold tuples, and forces one system prediction to match just one gold. It also does not penalize overlong extractions.
+        
+    \subsection{Wire57}
+        Finally, Wire57 \cite{Wire57} makes further improvements in the scorer. It  penalises overlong extractions and assigns a token-level precision and recall score to all gold-prediction pairs for a sentence. Moreover, it considers all pairs of extractions in its matching phase. However, it still forces one prediction to match just one gold. It also reports just one score for a system, ignoring the confidence values of the individual predictions that make the precision-recall curve of OIE2016 possible. Our scorer is inspired by theirs, with some changes. More importantly, the dataset used in Wire57 is manually curated, but with only 57 sentences, which is too small to suffice as a comprehensive test dataset.
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Uncategorised
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
