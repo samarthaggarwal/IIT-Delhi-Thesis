@@ -29,6 +29,7 @@
 \usepackage{listings}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \usepackage{hhline}
+\RequirePackage{latexsym,amsmath,amsthm,amssymb,bm}
 
  \linespread{1.2}
 
@@ -50,7 +51,7 @@
 \title{Neural Architectures and Evaluation \\Protocols for Open Information Extraction}
 
 \author{Samarth Aggarwal}
-\advisor{Prof. Mausam}
+\advisor{Prof. Mausam and Prof. Soumen Chakrabarti}
 \entrynumber{2016CS10395}
 \date{July 2020}
 \department{Computer Science and Engineering}
@@ -76,11 +77,11 @@ diploma.
 
 \begin{singlespacing}
 \hspace*{-0.25in}
-\parbox{2.5in}{
-\noindent {\bf Prof.~Mausam} \\
-\noindent Professor \\
-\noindent Dept. of Physics\\
-\noindent IIT-Delhi, 110 016 \\
+\parbox{6.4in}{
+\noindent {\bf Prof.~Mausam \hfill Prof.~Soumen Chakrabarti} \\
+\noindent {Professor \hfill Professor} \\
+\noindent {Dept. of Computer Science \hfill Dept. of Computer Science}\\
+\noindent {IIT-Delhi, 110016 \hfill IIT-Bombay, 400076}\\
 }
 \hspace*{1.0in}
 \end{singlespacing}
@@ -159,12 +160,17 @@ xxxxxxxxxxx \= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \kill
 % Chapters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Sample Chapter.
+\newcommand{\shortname}{{\scshape IMoJIE}}
+\newcommand{\longname}{Iterative Memory-Based Joint Open Information Extraction}
+\newcommand{\boldlongname}{\textbf{I}terative \textbf{M}em\textbf{O}ry \textbf{J}oint Open \textbf{I}nformation \textbf{E}xtraction}
+\newcommand{\boldshortname}{{\sc \textbf{IMoJIE}}}
 
-\chapter{Sample Chapter}
-\label{chap:sample}
-\input{sections/000.sample.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Sample Chapter.
+
+% \chapter{Sample Chapter}
+% \label{chap:sample}
+% \input{sections/000.sample.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Introduction.

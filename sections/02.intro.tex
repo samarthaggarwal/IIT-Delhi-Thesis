@@ -1,7 +1,7 @@
 \section{Overview}
   \subsection{What is OpenIE}
 
-  Open Information Extraction (Open IE) refers to the task of forming relational tuples from sentences, without a fixed relation vocabulary \cite{TextRunner}. Table \ref{tab:openie_eg} enlists a few examples of sentences along with their OpenIE tuples.
+  Extracting structured information from unstructured text has been a key research area within NLP. The paradigm of Open Information Extraction (OpenIE) \cite{banko&al07} uses an open vocabulary to convert natural text to semi-structured representations, by extracting a set of (subject, relation, object) tuples. OpenIE has found wide use in many downstream NLP tasks \cite{mausam16} like multi-document question answering and summarization \cite{fan&al19}, event schema induction \cite{balasubramanian-emnlp13} and word embedding generation \cite{stanovsky&al15}. Table \ref{tab:openie_eg} enlists a few examples of sentences along with their OpenIE tuples.
   
   % table with openie examples
 \begin{table}[h]
@@ -56,9 +56,7 @@ Extractions:
 
   However, OpenIE systems still perform unsatisfactorily when compared against the gold OpenIE outputs. The traditional rule-based OpenIE systems have a large number of components that cause errors to be cascaded. On the other hand, the neural systems introduce other problem such as high degree of redundancy among extractions, fixed number of extractions due to a beam search, and more. These problems indicate a need for an improved OpenIE system that can cater most, if not all, of these problems.
   
-  % Upon manually examining the OpenIE systems and their evaluation, we figured out an even deeper rooted problem. The benchmarks used to evaluate these systems were themselves flawed. Wire57 used a tiny gold dataset of only 57 sentences while RelVis had non-intuitive evaluation policies. OIE2016, which was the state-of-the-art OpenIE benchmark at that time, also had a noisy gold dataset (refer to table \ref{tab:gold_example}) as well as non-intuitive evaluation schemes.
-  
-  Traditionally, these systems have been evaluated over small manually curated gold datasets (e.g., \cite{ReVerb1, Ollie}). There are two problems with this approach. One, it is not reliable due to the small size of annotation. Second, it lacks standardization, since there is no single gold dataset over which all systems are evaluated. Moreover, the guidelines to annotate may vary across datasets and annotators. Recently, some standard benchmarks datasets and evaluators have been proposed: OIE2016 \cite{OIE2016}, RelVis \cite{Relvis}, and  Wire57 \cite{Wire57}. Unfortunately, these datasets are either too small or too noisy to meaningfully compare Open IE systems.
+  Upon manually examining the OpenIE systems and their evaluation, we figured out an even deeper rooted problem. The benchmarks used to evaluate these systems were themselves imperfect. They suffer from two major flaws: small and noisy gold datasets, and non-standard evaluation policies. Wire57 \citep{Wire57} uses a tiny gold dataset of only 57 sentences. RelVis had non-intuitive evaluation policies. OIE2016, which was the state-of-the-art OpenIE benchmark at that time, also had a noisy gold dataset (refer to table \ref{tab:gold_example}) as well as non-intuitive schemes of evaluation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Problem Statement}
@@ -78,8 +76,12 @@ Extractions:
   Our major contributions are:
   \begin{itemize}
     \item We contribute CaRB, an improved dataset and framework for testing Open IE systems. To the best of our knowledge, CaRB is the first \emph{crowdsourced} Open IE dataset and it also makes substantive changes in the matching code and metrics. NLP experts annotate CaRB's dataset to be more accurate than OIE2016. Moreover, we find that on one  pair of Open IE systems, CaRB framework provides contradictory results to OIE2016. Human assessment verifies that CaRB's ranking of the two systems is the accurate ranking. We release the CaRB framework along with its crowdsourced dataset.
-    \todo{add contributions from imojie and MLIL}
-    \item % IMoJIE 
+
+    \item We contribute \shortname{}, a neural OpenIE system that generates the next extraction, fully conditioned on the extractions produced so far. \shortname{} produce a variable number of diverse extractions for a sentence,
+    \item We present an unsupervised aggregation scheme to bootstrap training data by combining extractions from multiple OpenIE systems.
+    \item \shortname{} trained on this data establishes a new SoTA in OpenIE, beating previous systems and also our strong BERT-baseline. \todo{remove mlil as sota instead of imojie}
+    
+    \todo{add contributions from MLIL}
     \item % MLIL
   \end{itemize}
 

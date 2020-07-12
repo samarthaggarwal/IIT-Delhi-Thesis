@@ -1,20 +1,3 @@
-% \noindent KEYWORDS: \hspace*{0.5em} \parbox[t]{4.4in}{\LaTeX ; Thesis;
-%   Style files; Format.}
-
-% \vspace*{24pt}
-
-% \noindent A \LaTeX\ class along with a simple template thesis are
-% provided here.  These can be used to easily write a thesis suitable
-% for submission at IIT-Delhi.  The class provides options to format
-% PhD, MS, M.Tech.\ and B.Tech.\ thesis.  It also allows one to write a
-% synopsis using the same class file.  Also provided is a BIB\TeX\ style
-% file that formats all bibliography entries as per the IITD format.
-
-% The formatting is as (as far as the author is aware) per the current
-% institute guidelines.
-
-%%%%% Abstract = Summary of the entire project %%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{comment}
 
@@ -44,3 +27,11 @@ CaRB evaluation of the \citet{cui&al18}, then state of the art OpenIE systems, c
 Although IMoJIE improves the quality of OpenIE tuples significantly, this improvement comes at the cost of speed of extraction. We design a MLIL architecture to overcome the issue of speed of extraction and also obtain further performance nudges from it. This approach also yields a coordination analyzer that significantly improves the yield of the MLIL model.
 
 In the end, we analyse the milestones covered in the world of OpenIE and contribute some ideas for future research.
+
+\todo{reduce length, include this part}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MOVE TO ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% While traditional systems for Open Information Extraction were statistical and rule-based, recently neural models have been introduced for the task. Our work builds upon CopyAttention, a sequence generation OpenIE model \cite{cui&al18}. Our analysis reveals that CopyAttention produces a constant number of extractions per sentence, and its extracted tuples often express redundant information.
+
+% We present \shortname, an extension to CopyAttention, which produces the next extraction conditioned on all previously extracted tuples. This approach overcomes both shortcomings of CopyAttention, resulting in a variable number of diverse extractions per sentence. We train \shortname{} on training data bootstrapped from extractions of several non-neural systems, which have been automatically filtered to reduce redundancy and noise.  \shortname{} outperforms CopyAttention by about 18 F1 pts, and a BERT-based strong baseline by 2 F1 pts, establishing a new state of the art for the task.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

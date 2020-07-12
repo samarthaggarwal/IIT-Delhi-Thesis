@@ -1,16 +1,44 @@
 \section{Existing OIE Systems}
-\todo{Add lit.sur. of oie systems from imojie/mlil paper}
+    \todo{Add lit.sur. of oie systems from imojie/mlil paper}
 
-\subsection{Rule-Based Systems}
-\subsubsection{ClausIE}
-\subsubsection{PropS}
-\subsubsection{OllIE}
-\subsubsection{OpenIE - 4}
-\subsubsection{OpenIE - 5}
+    The existing OpenIE systems can be broadly categorised into two categories - Rule-Based Systems, and Neural Systems.
 
-\subsection{Neural Systems}
-\subsubsection{Copy Attention Model}
-\subsubsection{RnnOIE}
+    \subsection{Rule-Based Systems}
+        Traditional open extractors are rule-based or statistical, e.g., Textrunner \cite{banko&al07}, ReVerb \cite{Fader&al11,etzioni-ijcai11}, OLLIE \cite{Mausam&al12}, Stanford-IE \cite{angeli&al15}, ClausIE \cite{corro&al13}, OpenIE-4 \cite{christensen&al11,pal&al16}, OpenIE-5 \cite{Saha&al2017, Saha2018OpenIE}, PropS \cite{Stanovsky&al2016}, and MinIE \cite{gashteovski&al17}. These systems are largely unsupervised in nature, or bootstrapped from extractions made by earlier systems. They use syntactic or semantic parsers combined with rules to extract tuples from sentences.
+
+        \subsubsection{ClausIE}
+        \subsubsection{PropS}
+        \subsubsection{OllIE}
+        \subsubsection{OpenIE - 4}
+        \subsubsection{OpenIE - 5}
+
+    \subsection{Neural Systems}
+        To bypass error accumulation in rule-based systems with multiple subcomponents, end-to-end neural systems have been proposed recently. They belong to one of two paradigms: sequence \textit{labeling} or sequence \textit{generation}.
+
+        \subsubsection{Sequence Labelling}
+            \emph{Sequence Labeling} involves tagging each word in the input sentence as belonging to the subject, predicate, object or other. The final extraction is obtained by collecting labeled spans into different fields and constructing a tuple. RnnOIE \citep{stanovsky&al18} is a labeling system that first identifies the relation words and then uses sequence labelling to get their arguments. It is trained on OIE2016 dataset, which postprocesses SRL data for OpenIE \citep{Stanovsky2016EMNLP}.
+
+            SenseOIE \citep{roy&al19}, improves upon RnnOIE by using the extractions of multiple OpenIE systems as features in a sequence labeling setting. However, their training requires manually annotated gold extractions, which is not scalable for the task. This restricts SenseOIE to train on a dataset of 3,000 sentences. In contrast, our proposed \textit{Score-and-Filter} mechanism is unsupervised and can scale unboundedly. \citet{jiang12019improving} is another labeling system that better calibrates extractions across sentences.
+    
+            SpanOIE \citep{zhan&al19} uses a span selection model, a variant of the sequence labelling paradigm. Firstly, the predicate module finds the predicate spans in a sentence. Subsequently, the argument module outputs the arguments for this predicate. However, SpanOIE cannot extract nominal relations. Moreover, it bootstraps its training data over a single OpenIE system only. In contrast, \shortname{} overcomes both of these limitations. \todo{shift imojie mentions to imojie section}
+
+        \subsubsection{Sequence Generation}
+            \emph{Sequence Generation} uses a Seq2Seq model to generate output extractions one word at a time. The generated sequence contains field demarcators, which are used to convert the generated flat sequence to a tuple.
+            
+            Copy Attention \citep{cui&al18} is a neural generator trained over bootstrapped data generated from OpenIE-4 extractions on a large corpus. During inference, it uses beam search to get the predicted extractions. It uses a fixed-size beam, limiting it to output a constant number of extractions per sentence. Moreover, our analysis shows that CopyAttention extractions severely lack in diversity, as illustrated in Table~\ref{tab:redundancy-example}.
+            
+            Our analysis of Copy Attention reveals that it suffers from two drawbacks. First, it does not naturally adapt the number of extractions to the length or complexity of the input sentence.  Second, it is susceptible to \emph{stuttering}: extraction of multiple triples bearing redundant information.
+            
+            These limitations arise because its decoder has no explicit mechanism to remember what parts of the sentence have already been `consumed' or what triples have already been generated. Its decoder uses a fixed-size beam for inference. However, beam search can only ensure that the extractions are not exact duplicates.
+        
+            \citet{sun2018logician} propose the \emph{Logician} model, a restricted sequence generation model for extracting tuples from Chinese text. Logician relies on coverage attention and gated-dependency attention, a language-specific heuristic for Chinese. Using coverage attention, the model also tackles generation of multiple extractions while being globally-aware. We compare against Logician's coverage attention as one of the approaches for increasing diversity.
+
+        \subsubsection{Comparison}
+        Sequence-labeling based models lack the ability to change the sentence structure or introduce new auxiliary words while uttering predictions. For example, they cannot extract \verb|(Trump, is the President of, US)| from \verb|``US President Trump''|, since `is', `of' are not in the original sentence. Also, they assume that all words in one field of the extraction would occur in the same order as they are in the original sentence. But this may not always be ideal. 
+    
+        On the other hand, sequence-generation models subsume the former type of models. It comes with the added ability to generate words that are not present in the sentence as well as the ability to mutate the sentence structure.
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Benckmarks}
     To the best of our knowledge, there were three benchmarks systems available for comparing Open IE systems - OIE2016, RelVis and Wire57.
