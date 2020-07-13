@@ -773,3 +773,164 @@
   pages={902--912},
   year={2014}
 }
+
+@inproceedings{wang&al18,
+  title = "A Tree-based Decoder for Neural Machine Translation",
+  author = "Wang, Xinyi  and
+    Pham, Hieu  and
+    Yin, Pengcheng  and
+    Neubig, Graham",
+  booktitle = "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
+  month = oct # "-" # nov,
+  year = "2018",
+  address = "Brussels, Belgium",
+  publisher = "Association for Computational Linguistics",
+  url = "https://www.aclweb.org/anthology/D18-1509",
+  doi = "10.18653/v1/D18-1509",
+  pages = "4772--4777",
+  abstract = "Recent advances in Neural Machine Translation (NMT) show that adding syntactic information to NMT systems can improve the quality of their translations. Most existing work utilizes some specific types of linguistically-inspired tree structures, like constituency and dependency parse trees. This is often done via a standard RNN decoder that operates on a linearized target tree structure. However, it is an open question of what specific linguistic formalism, if any, is the best structural representation for NMT. In this paper, we (1) propose an NMT model that can naturally generate the topology of an arbitrary tree structure on the target side, and (2) experiment with various target tree structures. Our experiments show the surprising result that our model delivers the best improvements with balanced binary trees constructed without any linguistic knowledge; this model outperforms standard seq2seq models by up to 2.1 BLEU points, and other methods for incorporating target-side syntax by up to 0.7 BLEU.",
+}
+
+@article{PennTreeBank,
+  author = {Marcus, Mitchell P. and Marcinkiewicz, Mary Ann and Santorini, Beatrice},
+  title = {Building a Large Annotated Corpus of English: The Penn Treebank},
+  year = {1993},
+  issue_date = {June 1993},
+  publisher = {MIT Press},
+  address = {Cambridge, MA, USA},
+  volume = {19},
+  number = {2},
+  issn = {0891-2017},
+  journal = {Comput. Linguist.},
+  month = jun,
+  pages = {313–330},
+  numpages = {18}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MLIL.bib %%%%%%%%%%%%%%%%%%%
+
+@inproceedings{cui+18,
+  title={Neural open information extraction},
+  author={Cui, Lei and Wei, Furu and Zhou, Ming},
+  booktitle={Proceedings of Association for Computational Linguistics ({ACL}), 2018},
+  pages={407--413},	
+  year={2018}}
+
+  @inproceedings{mehta&al18,
+  author    = {Sanket Vaibhav Mehta and
+               Jay Yoon Lee and
+               Jaime G. Carbonell},
+  editor    = {Ellen Riloff and
+               David Chiang and
+               Julia Hockenmaier and
+               Jun'ichi Tsujii},
+  title     = {Towards Semi-Supervised Learning for Deep Semantic Role Labeling},
+  booktitle = {Proceedings of the 2018 Conference on Empirical Methods in Natural
+               Language Processing, Brussels, Belgium, October 31 - November 4, 2018},
+  pages     = {4958--4963},
+  publisher = {Association for Computational Linguistics},
+  year      = {2018},
+  url       = {https://www.aclweb.org/anthology/D18-1538/},
+  timestamp = {Fri, 13 Sep 2019 13:08:45 +0200},
+  biburl    = {https://dblp.org/rec/conf/emnlp/MehtaLC18.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{ficler&goldberg17,
+    title = "Controlling Linguistic Style Aspects in Neural Language Generation",
+    author = "Ficler, Jessica  and
+      Goldberg, Yoav",
+    booktitle = "Proceedings of the Workshop on Stylistic Variation",
+    month = sep,
+    year = "2017",
+    address = "Copenhagen, Denmark",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/W17-4912",
+    doi = "10.18653/v1/W17-4912",
+    pages = "94--104",
+    abstract = "Most work on neural natural language generation (NNLG) focus on controlling the content of the generated text. We experiment with controling several stylistic aspects of the generated text, in addition to its content. The method is based on conditioned RNN language model, where the desired content as well as the stylistic parameters serve as conditioning contexts. We demonstrate the approach on the movie reviews domain and show that it is successful in generating coherent sentences corresponding to the required linguistic style and content.",
+}
+
+@inproceedings{teranishi+19,
+    title = "Decomposed Local Models for Coordinate Structure Parsing",
+    author = "Teranishi, Hiroki  and
+      Shindo, Hiroyuki  and
+      Matsumoto, Yuji",
+    booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+    month = jun,
+    year = "2019",
+    address = "Minneapolis, Minnesota",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/N19-1343",
+    doi = "10.18653/v1/N19-1343",
+    pages = "3394--3403",
+    abstract = "We propose a simple and accurate model for coordination boundary identification. Our model decomposes the task into three sub-tasks during training; finding a coordinator, identifying inside boundaries of a pair of conjuncts, and selecting outside boundaries of it. For inference, we make use of probabilities of coordinators and conjuncts in the CKY parsing to find the optimal combination of coordinate structures. Experimental results demonstrate that our model achieves state-of-the-art results, ensuring that the global structure of coordinations is consistent.",
+}
+
+@inproceedings{ficler&goldberg16b,
+  author    = {Jessica Ficler and
+               Yoav Goldberg},
+  editor    = {Jian Su and
+               Xavier Carreras and
+               Kevin Duh},
+  title     = {A Neural Network for Coordination Boundary Prediction},
+  booktitle = {Proceedings of the 2016 Conference on Empirical Methods in Natural
+               Language Processing, {EMNLP} 2016, Austin, Texas, USA, November 1-4,
+               2016},
+  pages     = {23--32},
+  publisher = {The Association for Computational Linguistics},
+  year      = {2016},
+  url       = {https://doi.org/10.18653/v1/d16-1003},
+  doi       = {10.18653/v1/d16-1003},
+  timestamp = {Tue, 28 Jan 2020 10:28:41 +0100},
+  biburl    = {https://dblp.org/rec/conf/emnlp/FiclerG16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{ficler&goldberg16a,
+  author    = {Jessica Ficler and
+               Yoav Goldberg},
+  title     = {Coordination Annotation Extension in the Penn Tree Bank},
+  booktitle = {Proceedings of the 54th Annual Meeting of the Association for Computational
+               Linguistics, {ACL} 2016, August 7-12, 2016, Berlin, Germany, Volume
+               1: Long Papers},
+  publisher = {The Association for Computer Linguistics},
+  year      = {2016},
+  url       = {https://doi.org/10.18653/v1/p16-1079},
+  doi       = {10.18653/v1/p16-1079},
+  timestamp = {Tue, 28 Jan 2020 10:27:52 +0100},
+  biburl    = {https://dblp.org/rec/conf/acl/FiclerG16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{teranishi+17,
+  title={Coordination boundary identification with similarity and replaceability},
+  author={Teranishi, Hiroki and Shindo, Hiroyuki and Matsumoto, Yuji},
+  booktitle={Proceedings of the Eighth International Joint Conference on Natural Language Processing (Volume 1: Long Papers)},
+  pages={264--272},
+  year={2017}
+}
+
+@inproceedings{nandwani&al19,
+  title={A Primal Dual Formulation For Deep Learning With Constraints},
+  author={Nandwani, Yatin and Pathak, Abhishek and Singla, Parag and Mausam},
+  booktitle={Advances in Neural Information Processing Systems},
+  pages={12157--12168},
+  year={2019}
+}
+
+@article{vinyals&al16,
+  title={Order Matters: Sequence to sequence for sets},
+  author={Oriol Vinyals and Samy Bengio and Manjunath Kudlur},
+  journal={ICLR},
+  year={2016},
+  volume={abs/1511.06391}
+}
+
+@article{gao&al19,
+  title={A Sequential Set Generation Method for Predicting Set-Valued Outputs},
+  author={Tian Gao and Jian Jhen Chen and Vijil Chenthamarakshan and Michael J. Witbrock},
+  journal={AAAI},
+  year={2019},
+  volume={abs/1903.05153}
+}

@@ -1,0 +1,27 @@
+\section{OpenIE Milestones}
+
+    This thesis covers several OpenIE milestones that mark our progress in the world of Open Information Extraction.
+
+    \begin{enumerate}
+        \item \textbf{Benchmark:} The problem of standardised and reliable benchmarking was solved using CaRB \citep{bhardwaj&al19}
+        \item \textbf{Redundancy Removal:} \shortname \citep{kolluru&al20} and \mlilshortname\ have been able to produce non-redundant extractions
+        \item \textbf{Variable Number of OpenIE tuples:} The iterative style architecture of \shortname\ and \mlilshortname\ overcome the problem of fixed number of extractions output by neural OpenIE systems using beam search.
+        \item \textbf{Conjunction Splitting:} The MLIL-based Coordination Analyzer is now established as a new state-of-the-art.
+        \item \textbf{Coreference Resolution:} Although OpenIE systems do resolve some coreferences, the problem is largely unsolved. It still requires careful attention and is left to future research.
+        \item \textbf{Enhancing the Grammar of Extractions:} As neural systems lead to the rise of generative models in the OpenIE realm, generating grammatically correct extractions becomes increasingly vital. Improving the grammar of extractions has also been left to future research.
+    \end{enumerate}
+
+
+\section{Future Ideas}
+
+    In the end, we contribute a few ideas to unravel interesting research directions that are yet unexplored.
+
+    \begin{itemize}
+        \item \textbf{Adding a language model to the extractor:} We have seen that the output extractions of generative OpenIE systems often do not lead to grammatical sentences when serialised. Adding a language model to the extractor seems to be a promising approach to tackle this issue.
+        
+        \item \textbf{Set Prediction Approach:} The task of OpenIE is inherently a set prediction task. The output needs to be a \emph{set} of OpenIE tuples. The order in which the tuples are spit out typically holds no significance. However, most of the OpenIE systems, including the state-of-the-art MLIL-based OpenIE as well as \shortname, treat it as sequence prediction task. The basic premise of the iterative architecture is also to predict a \emph{sequence-of-sequences}, rather than a \emph{set-of-sequences}. This violates the basic nature of the problem. Trying out set prediction techniques for OpenIE is a direction worth exploring. \cite{gao&al19} present a sequential set generation (SSG) framework which is a good point to start.
+        
+        \item \textbf{Optimally Ordering Training Data:} \cite{vinyals&al16} show that the order in which we arrange the input/output data significantly affects performance while learning an underlying model. While training OpenIE models, we arrange the input data based on its confidence score. However, multiple other orders are possible such as increasing order of tuple length. It will be interesting to study what affect does the order of training extractions have on the OpenIE models trained downstream. We might also derive cues to the optimal order for training OpenIE systems from here.
+        
+        \item \textbf{Incorporating CaRB's loss in \mlilshortname:} We can look for ways to incorporate the CaRB metric into the objective function of our model so that it can explicitly be optimised for. Even if this approach does not succeed in improving the OpenIE model, this experiment will reveal flaws in the metric used in our benchmark which we can use to improve our benchmark further.
+    \end{itemize}
