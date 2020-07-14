@@ -4,7 +4,7 @@
     Traditionally, these systems have been evaluated over small manually curated gold datasets (e.g., \cite{ReVerb1, Ollie}). There are two problems with this approach. One, it is not reliable due to the small size of annotation. Second, it lacks standardization, since there is no single gold dataset over which all systems are evaluated. Moreover, the guidelines to annotate may vary across datasets and annotators. Recently, some standard benchmarks datasets and evaluators have been proposed: OIE2016 \citep{OIE2016}, RelVis \citep{Relvis}, and  Wire57 \citep{Wire57}. Unfortunately, these datasets are either too small or too noisy to meaningfully compare Open IE systems. 
 
     % CaRB intro
-    \subsection{Establishing a new State-of-the-Art} \todo{rethink headings}
+    \subsection{Establishing a new State-of-the-Art}
     In response, we propose a new benchmark system CaRB:  \textbf{C}rowdsourced \textbf{a}utomatic open \textbf{R}elation extraction \textbf{B}enchmark \citep{bhardwaj&al19}, which has a good sized and high quality dataset, along with better evaluation metrics. In order to create this gold dataset, we crowdsource human annotation of extractions using Amazon Mechanical Turk (MTurk) using the same original sentences as OIE2016. Our MTurk task has an automated system for training and qualifying workers, which makes crowdsourcing this annotation feasible.
 
     Two Open IE experts (authors of this paper) manually annotate 50 random sentences, which are then used as expert ground truth to evaluate the respective tuples in OIE2016's and CaRB's gold datasets  (Tables \ref{tab:token-level},\ref{tab:lexical}). We find that CaRB outperforms OIE2016 by 21 points in precision and 16 points in recall in token level match. This demonstrates that CaRB's gold dataset is significantly more accurate than OIE2016's. Additionally, when evaluating all systems using our benchmark, we notice that CaRB reverses OIE2016's ranking of PropS and ClausIE. Human verification, again through crowdsourcing, verifies that two systems are ranked more accurately by CaRB. We release CaRB's dataset, along with its evaluator as a novel benchmark for further use by research community.\footnote{\texttt{\href{https://github.com/dair-iitd/CaRB}{https://github.com/dair-iitd/CaRB}}}
@@ -14,7 +14,7 @@
 
     To overcome the shortcomings of dataset noise and size, we crowdsource a high-quality gold dataset for Open IE. We ask  workers over Amazon Mechanical Turk (MTurk) to annotate extractions for the 1,282 sentences in dev and test splits of OIE2016. The workers annotate tuples in the form (arg1, rel, arg2), and also annotate location and time attributes for each tuple, when possible. 
 
-    Open IE annotations are not easy to obtain from non-expert workers. To get acceptable quality,  we train workers using a tutorial\footnote{Screenshots in Appendix} \todo{Add ss to appendix} that doubles up as a qualification test. Their performance in the test is automatically graded. Only workers that pass this are allowed to move on to the main task. The qualification is integrated with the task so that a new worker is served the tutorial and test first, but a qualified worker is directly taken to the main task. This makes the crowdsourcing process scalable. 
+    Open IE annotations are not easy to obtain from non-expert workers. To get acceptable quality,  we train workers using a tutorial that doubles up as a qualification test. Their performance in the test is automatically graded. Only workers that pass this are allowed to move on to the main task. The qualification is integrated with the task so that a new worker is served the tutorial and test first, but a qualified worker is directly taken to the main task. This makes the crowdsourcing process scalable. 
 
     We divide the task of annotating a sentence into three steps: (1) identifying the relation, (2) identifying the arguments for that relation, and (3) optionally identifying the location and time attributes for the tuple.  The training process for the annotators is split into four steps,  each of which focuses on a different guideline for Open IE. These are:
 
@@ -182,7 +182,6 @@
         \vspace*{-2ex}
         \label{tab:carb}
         \end{table}
-        \todo{Tally these values from IMoJIE table}
 
         We test the different Open IE systems depicted in \citet{OIE2016}, using the CaRB dataset and scorer. The p-r curves obtained using OIE2016 and CaRB are outlined in figures \ref{fig:pr_oie16} (reproduced from \citet{Rnnoie}) and \ref{fig:pr_carb}. Precision, recall and F1 scores (at max F1 point) and area under precision-recall curve are reported in Table \ref{tab:carb}. It can be seen that the curve for PropS lies above ClausIE at all times in OIE2016, but PropS performs the worse of all systems in CaRB. To verify that CaRB indeed gives the correct ranking, we turn back to human verification.
 
@@ -218,6 +217,4 @@
     We contribute CaRB \citep{bhardwaj&al19}, a crowdsourced dataset for evaluation and comparison of Open IE systems. We assess this dataset against an expert-annotated dataset and find that it is dramatically more accurate than the existing OIE2016 benchmark dataset. 
 
     We also implement a scorer that computes precision, recall and area under p-r curve for a given system output by matching it with the CaRB dataset. In designing our scorer, we make several design choices that deviate from prior work in both match scores and also in finding the best match for a tuple. We believe our scheme treats various systems fairly. And in one case where CaRB and OIE2016 give different rankings to two Open IE systems, we demonstrate via human evaluation that the ranking given by CaRB is the accurate one. We release the dataset and scorer for further use by research community. 
-
-    We expect that crowdsourced annotation will also be able to help the training of Open IE systems as it has helped their evaluation -- we leave the creation of a suitably large crowdsourced training set for Open IE to future work. \todo{link future work of carb to imojie, remove "future work" phrase}
 

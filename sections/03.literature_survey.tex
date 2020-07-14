@@ -1,17 +1,15 @@
 \section{Existing OIE Systems}
-    \todo{Add lit.sur. of oie systems from imojie/mlil paper}
 
     The existing OpenIE systems can be broadly categorised into two categories - Rule-Based Systems, and Neural Systems.
 
     \subsection{Rule-Based Systems}
         Traditional open extractors are rule-based or statistical, e.g., Textrunner \cite{banko&al07}, ReVerb \cite{Fader&al11,etzioni-ijcai11}, OLLIE \cite{Mausam&al12}, Stanford-IE \cite{angeli&al15}, ClausIE \cite{corro&al13}, OpenIE-4 \cite{christensen&al11,pal&al16}, OpenIE-5 \cite{Saha&al2017, Saha2018OpenIE}, PropS \cite{Stanovsky&al2016}, and MinIE \cite{gashteovski&al17}. These systems are largely unsupervised in nature, or bootstrapped from extractions made by earlier systems. They use syntactic or semantic parsers combined with rules to extract tuples from sentences.
 
-        \todo{see if you can add some info for specific rule based systems}
-        \subsubsection{ClausIE}
-        \subsubsection{PropS}
-        \subsubsection{OllIE}
-        \subsubsection{OpenIE - 4}
-        \subsubsection{OpenIE - 5}
+        % \subsubsection{ClausIE}
+        % \subsubsection{PropS}
+        % \subsubsection{OllIE}
+        % \subsubsection{OpenIE - 4}
+        % \subsubsection{OpenIE - 5}
 
     \subsection{Neural Systems}
         To bypass error accumulation in rule-based systems with multiple subcomponents, end-to-end neural systems have been proposed recently. They belong to one of two paradigms: sequence \textit{labeling} or sequence \textit{generation}.
@@ -21,7 +19,7 @@
 
             SenseOIE \citep{roy&al19}, improves upon RnnOIE by using the extractions of multiple OpenIE systems as features in a sequence labeling setting. However, their training requires manually annotated gold extractions, which is not scalable for the task. This restricts SenseOIE to train on a dataset of 3,000 sentences. In contrast, our proposed \textit{Score-and-Filter} mechanism is unsupervised and can scale unboundedly. \citet{jiang12019improving} is another labeling system that better calibrates extractions across sentences.
     
-            SpanOIE \citep{zhan&al19} uses a span selection model, a variant of the sequence labelling paradigm. Firstly, the predicate module finds the predicate spans in a sentence. Subsequently, the argument module outputs the arguments for this predicate. However, SpanOIE cannot extract nominal relations. Moreover, it bootstraps its training data over a single OpenIE system only. In contrast, \shortname{} overcomes both of these limitations. \todo{shift imojie mentions to imojie section}
+            SpanOIE \citep{zhan&al19} uses a span selection model, a variant of the sequence labelling paradigm. Firstly, the predicate module finds the predicate spans in a sentence. Subsequently, the argument module outputs the arguments for this predicate. However, SpanOIE cannot extract nominal relations. Moreover, it bootstraps its training data over a single OpenIE system only.
 
         \subsubsection{Sequence Generation}
             \emph{Sequence Generation} uses a Seq2Seq model to generate output extractions one word at a time. The generated sequence contains field demarcators, which are used to convert the generated flat sequence to a tuple.
